@@ -1,6 +1,6 @@
 {
   "name": "@xpf0000/vue-ckeditor4",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "xu pengfei 250881478@qq.com",
   "main": "src/index.js",
   "unpkg": "src/index.js",
@@ -23,8 +23,6 @@
     ]
   },
   "dependencies": {
-    "@ckeditor/ckeditor5-build-classic": "^27.0.0",
-    "@ckeditor/ckeditor5-vue2": "^1.0.5",
     "vue": "^2.6.11"
   },
   "devDependencies": {

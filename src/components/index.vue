@@ -111,7 +111,8 @@
         })
       },
       chooseImg() {
-        BaseConfig.imageChoose && BaseConfig.imageChoose(this.ckeditor)
+        BaseConfig.imageChoose &&
+          BaseConfig.imageChoose.call(this, this.ckeditor)
       }
     }
   }

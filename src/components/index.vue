@@ -31,20 +31,18 @@
     watch: {
       value: {
         handler() {
-          console.log(this.value, '传递的value')
           if (!this.inited) {
-            this.inited = true
-            this.setCKData(this.value)
+            this.setCKData()
           }
+          this.inited = false
         },
-        immediate: true
+        immediate: false
       }
     },
-    created() {
-      this.clean()
-    },
+    created() {},
     mounted: function () {
       this.init()
+      this.setCKData()
     },
     destroyed() {
       this.hadDestoyed = true
@@ -59,7 +57,6 @@
           return
         }
         let id = `cke_${this.id}`
-        console.log('id:   ', id)
         let ckdom = document.getElementById(id)
         if (!ckdom) {
           setTimeout((_) => {
@@ -82,15 +79,6 @@
           return
         }
         content.innerHTML = this.value
-      },
-      /**
-       * 销毁所有的CKEDITOR实例
-       */
-      clean() {
-        for (let name in window.CKEDITOR.instances) {
-          window.CKEDITOR.instances[name].destroy(true)
-        }
-        this.ckeditor = null
       },
       /**
        * 富文本编辑器的初始化方法 1.初始化 2.设置数据 3.添加监听事件
